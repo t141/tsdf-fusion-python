@@ -53,7 +53,7 @@ def main(data_dir, voxel_size):
             vol_bnds[:,1],np.amax(view_frust_pts,axis=1))
         
     # ---------------------------------------------------------------------
-    
+
     # Initialize voxel volume
     print("Initializing voxel volume...")
     tsdf_vol = fusion.TSDFVolume(vol_bnds, voxel_size=voxel_size)

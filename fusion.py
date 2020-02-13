@@ -262,6 +262,8 @@ class TSDFVolume(object):
     # Get mesh of voxel volume via marching cubes
     def get_mesh(self):
         tsdf_vol,color_vol = self.get_volume()
+        idx = np.unravel_index(np.argmin(tsdf_vol), tsdf_vol.shape)
+        tsdf_sorted = np.sort(tsdf_vol.flatten())
 
         # Marching cubes
         verts,faces,norms,vals = measure.marching_cubes_lewiner(tsdf_vol,level=0)
